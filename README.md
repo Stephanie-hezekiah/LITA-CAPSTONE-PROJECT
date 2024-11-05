@@ -166,25 +166,73 @@ v. Project Dashboard
 ### Exploratory Data Analysis
 
 1. Data Loading and Initial Exploration
+   
 - Using Excel
-•	Open and Inspect Data: Load the data into Excel to inspect rows, columns, and data types.
-•	Removing Duplicates
-•	Basic Summary Statistics: Use formulas (like AVERAGE, SUM, COUNT, AVERAGEIF AND SUMIF etc.) to calculate basic statistics, such as total revenue, average sales per transaction, and total transactions.
+  
+i. Open and Inspect Data: Load the data into Excel to inspect rows, columns, and data types.
+ii.	Removing Duplicates
+iii. Basic Summary Statistics: Use formulas (like AVERAGE, SUM, COUNT, AVERAGEIF AND SUMIF etc.) to calculate basic statistics, such as total revenue, average sales per transaction, and total transactions.
 
-Using SQL
-•	Data Import: Load the data into a SQL database (SQL Server).
-•	Inspect Table Structure: Use DESCRIBE table_name; or SELECT * FROM [dbo].[LITA Capstone Dataset for sales]
-•	Basic Queries: 
+- Using SQL
+
+i. Data Import: Load the data into a SQL database (SQL Server).
+ii. Inspect Table Structure: Use DESCRIBE table_name; or SELECT * FROM [dbo].[LITA Capstone Dataset for sales]
+iii. Basic Queries: 
 
 ```sql
-SELECT Distinct Product
-FROM [dbo].[LITA Capstone Dataset for sales]
-WHERE product NOT IN (
-    SELECT product
-    FROM [dbo].[LITA Capstone Dataset for sales]
-    WHERE OrderDate >= DATEADD(month, -1, GETDATE())
-)
-ORDER BY product;
+Create DATABASE Stephanie_db
+
+SELECT * FROM [dbo].[LITA Capstone Dataset for sales]
 ```
+
+2. Data Cleaning
+   
+- Using Excel
+  
+i. Remove Duplicates: Use Remove Duplicates under the Data tab to clear duplicate rows.
+ii. Data Formatting: Ensure all dates, currency values, and IDs are formatted consistently.
+
+3. Descriptive Statistics and Aggregation
+
+-Using Excel 
+1. calculate the sales column (unit price*quantity)
+2. Calculated the total sales(revenue) using the subtotal function
+3. Calculate the average sales using the average function
+4. Calculated the maximum and minimum sales using the min function amd max function
+5. Calculated the average sales per product using the averageif function (=averageif(product, shoes, sales)
+6. Calculated the average revenue per region using the sumif function (=sumif(region, north, sales)
+
+- Using SQL
+1. Retrieve the total number of customers from each region:
+```SQL
+SELECT Product, SUM(sales) AS total_sales
+FROM [dbo].[LITA Capstone Dataset for sales]
+GROUP BY Product
+```
+2. Find the most popular subscription type by the number of customers.
+   ```SQL
+   SELECT Region, COUNT(*) AS number_of_transactions 
+FROM [dbo].[LITA Capstone Dataset for sales]
+GROUP BY Region
+```
+
+3. Find customers who canceled their subscription within 6 months.
+5. Calculate the average subscription duration for all customers.
+6. Find customers with subscriptions longer than 12 months.
+7. Calculate total revenue by subscription type.
+8. Find the top 3 regions by subscription cancellations.
+9. Find the total number of active and canceled subscriptions.
+
+Copy code
+SELECT EXTRACT(YEAR FROM date) AS year, EXTRACT(MONTH FROM date) AS month, SUM(sales_amount) AS monthly_revenue
+FROM sales_data
+GROUP BY year, month
+ORDER BY year, month;
+Using Excel
+•	Pivot Tables: Create pivot tables to summarize sales by product, region, month, etc.
+•	Charts: Use Excel charts to visualize trends, such as revenue by month or top-selling products.
+
+
+
 
 
