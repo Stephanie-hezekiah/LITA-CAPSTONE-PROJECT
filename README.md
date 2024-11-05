@@ -13,15 +13,15 @@
 [Exploratory Data Analysis](#exploratory-data-analysis)
 
 ### Project Overview
----
-This repository serves as a centralized location for managing and analyzing sales data. It includes various datasets and documentation to facilitate understanding and use of the sales information. The data included covers sales metrics such as revenue, customer id, products, sales, order id, order date and regions. The objectives of this project are listed below:
----
+
+This repository serves as a centralized location for managing and analyzing sales data. It includes various dataset  and documentation to facilitate understanding and use of the sales information. The data includes sales metrics such as: Revenue, Customer ID, Products, Sales, Order ID, Order Date and Region. The objectives of this project are listed below:
+
 1. Customer Analysis: Identifying customer segments and region.
 2. Product Performance: Reviewing product popularity and profitability.
 3. Revenue Analysis: Understanding revenue sources by region, order date, and customer demographics.
 
 ### Data Sources
----
+
 The data set was given by our tutor in person of Mr Mushin.
 
 ### Data Description
@@ -40,7 +40,7 @@ It contains the original sales data including fields such as:
 7. Unit Price: Price per unit
 
 ### Tools Used
----
+
 - Microsoft Excel
 i. Dataset cleaning (Removing of duplicates)
 
