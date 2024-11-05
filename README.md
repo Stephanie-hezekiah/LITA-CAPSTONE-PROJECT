@@ -163,5 +163,28 @@ iv. Predictive Analytics
 
 v. Project Dashboard
 
+### Exploratory Data Analysis
 
-  
+1. Data Loading and Initial Exploration
+- Using Excel
+•	Open and Inspect Data: Load the data into Excel to inspect rows, columns, and data types.
+•	Removing Duplicates
+•	Basic Summary Statistics: Use formulas (like AVERAGE, SUM, COUNT, AVERAGEIF AND SUMIF etc.) to calculate basic statistics, such as total revenue, average sales per transaction, and total transactions.
+
+Using SQL
+•	Data Import: Load the data into a SQL database (SQL Server).
+•	Inspect Table Structure: Use DESCRIBE table_name; or SELECT * FROM [dbo].[LITA Capstone Dataset for sales]
+•	Basic Queries: 
+
+```sql
+SELECT Distinct Product
+FROM [dbo].[LITA Capstone Dataset for sales]
+WHERE product NOT IN (
+    SELECT product
+    FROM [dbo].[LITA Capstone Dataset for sales]
+    WHERE OrderDate >= DATEADD(month, -1, GETDATE())
+)
+ORDER BY product;
+```
+
+
