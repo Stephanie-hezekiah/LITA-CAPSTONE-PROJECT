@@ -55,14 +55,13 @@ iv. For Visualisation (Use of Bar charts, pie chart) [view](https://docs.google.
 Create DATABASE Stephanie_db
 
 SELECT * FROM [dbo].[LITA Capstone Dataset for sales]
+
+--------- retrieve the total sales for each product category-------
 SELECT Product, SUM(sales) AS total_sales
 FROM [dbo].[LITA Capstone Dataset for sales]
 GROUP BY Product
 
-SELECT Region, COUNT(*) AS number_of_transactions 
-FROM [dbo].[LITA Capstone Dataset for sales]
-GROUP BY Region
-
+--------find the number of sales transactions in each region--------
 Select sum (sales) as South_Total_Sales 
 from [dbo].[LITA Capstone Dataset for sales]
 where Region = 'South'
@@ -79,14 +78,12 @@ Select sum (sales) as North_Total_Sales
 from [dbo].[LITA Capstone Dataset for sales]
 where Region = 'North'
 
+-------Find the highest-selling product by total sales value-------
 SELECT top 1 Product, sum (sales) AS Highest_Selling_Product 
 FROM [dbo].[LITA Capstone Dataset for sales]
 GROUP BY Product
 
-SELECT Product, SUM(sales) AS sales
-FROM [dbo].[LITA Capstone Dataset for sales]
-GROUP BY Product;
-
+-------calculate total revenue per product-------
 Select sum (sales) as Gloves_Total_Sales 
 from [dbo].[LITA Capstone Dataset for sales]
 where Product = 'Gloves'
@@ -111,6 +108,7 @@ Select sum (sales) as Jacket_Total_Sales
 from [dbo].[LITA Capstone Dataset for sales]
 where Product = 'Jacket'
 
+---------calculate monthly sales totals for the current year--------
 SELECT 
     MONTH(Orderdate) AS month, 
     DATENAME(MONTH, Orderdate) AS month_name,
@@ -125,12 +123,14 @@ GROUP BY
 ORDER BY 
     month;
 
+-------- find the top 5 customers by total purchase amount-------
 SELECT TOP 5 OrderId, Region, SUM(Sales) AS total_purchase_amount
 FROM [dbo].[LITA Capstone Dataset for sales]
 GROUP BY OrderId,
 Region
 ORDER BY SUM(Sales) DESC;
 
+ -------calculate the percentage of total sales contributed by each region------
 WITH SalesByRegion AS ( 
     SELECT 
         Region,
