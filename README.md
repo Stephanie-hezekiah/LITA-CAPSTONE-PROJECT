@@ -8,8 +8,6 @@
 
 [Tools Used](#tools-used)
 
-[Data Cleaning](#data-cleaning)
-
 [Exploratory Data Analysis](#exploratory-data-analysis)
 
 ### Project Overview
@@ -152,3 +150,18 @@ FROM
 ORDER BY 
     Percentage DESC;
   ```
+
+- Power BI: Power BI is an essential tool in sales data analysis because it enables teams to create;
+  
+i. Insightful Data Visualization
+
+ii. Data Connectivity and Integration
+
+iii. Collaboration and Sharing
+
+iv. Predictive Analytics
+
+v. Project Dashboard
+
+
+  
