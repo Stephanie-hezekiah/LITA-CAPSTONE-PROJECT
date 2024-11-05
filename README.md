@@ -10,6 +10,8 @@
 
 [Exploratory Data Analysis](#exploratory-data-analysis)
 
+[Inference](#inference)
+
 ### Project Overview
 
 This repository serves as a centralized location for managing and analyzing sales data. It includes various dataset  and documentation to facilitate understanding and use of the sales information. The data includes sales metrics such as: Revenue, Customer ID, Products, Sales, Order ID, Order Date and Region. The objectives of this project are listed below:
@@ -215,7 +217,6 @@ GROUP BY Product
 FROM [dbo].[LITA Capstone Dataset for sales]
 GROUP BY Region
 ```
-
 3. Find customers who canceled their subscription within 6 months.
 5. Calculate the average subscription duration for all customers.
 6. Find customers with subscriptions longer than 12 months.
@@ -223,16 +224,16 @@ GROUP BY Region
 8. Find the top 3 regions by subscription cancellations.
 9. Find the total number of active and canceled subscriptions.
 
-Copy code
-SELECT EXTRACT(YEAR FROM date) AS year, EXTRACT(MONTH FROM date) AS month, SUM(sales_amount) AS monthly_revenue
-FROM sales_data
-GROUP BY year, month
-ORDER BY year, month;
-Using Excel
-•	Pivot Tables: Create pivot tables to summarize sales by product, region, month, etc.
-•	Charts: Use Excel charts to visualize trends, such as revenue by month or top-selling products.
+# Inference
 
+1. Top performing products: By using the excel & SQL, the product "Shoes" was considered to be the top performing product base on the total sales(N613,380)
+ it generated which is higher than the other products.
 
+2. Regional Breakdown:
 
+- North: There was a notable increase in the total turnover from N143,960 in Year 2023 to N243,040 in Year 2024 with 26% increase. The company should invest more products in this region to better boost the total revenue.
+- South: This region also performs well in generating revenue to the company. However, there was a slight decrease in revenue generated as decrease of N33,820 was recorded representing 4% decrease. This is not a major challenge but the reason for the drop in revenue have to be investigate so as to maintan/increase the revenue in a subsequent year.
+- East: In Year 2023, the total revenue generated was N393,945. However, there was a significant decline in 2024 with the total revenue coming down to N91,980 representing 62% decrease. This decrease in revenue may suggest increase in competitors, difficulty in maintaining sales, economic conditions and/or market contraction. This indicate a potential area of concern which requires immediate attention. The company should attempt to increase sales & marketing techniques, reaching more customers, maintaining good relationship with the current and new customers, create special incentives, develop a public reputation for quality and expertise, offer discount, rebates and coupons, review the current prices of products among others.
+- West: There is a significant increase in the revenue recorded in this region as N127,135 increase was recorded in between 2023 & 2024. It might be that the company is a monopoly. This need to be maintain for the region to keep on recording increase in revenue.
 
 
