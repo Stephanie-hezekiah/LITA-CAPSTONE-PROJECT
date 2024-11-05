@@ -1,4 +1,4 @@
-# SALES-DATA
+# LITA_CAPSTONE_PROJECT_SALESDATA
 
 ### PROJECT TITLE: Analyzing Sales Data using Microsoft Excel,SQL and PowerBI
 
