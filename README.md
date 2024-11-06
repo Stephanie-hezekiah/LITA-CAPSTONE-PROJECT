@@ -4,6 +4,8 @@
 
 [Project Overview](#project-overview)
 
+[Objectives](objectives)
+
 [Data Sources](#data-sources)
 
 [Tools Used](#tools-used)
@@ -16,8 +18,9 @@
 
 ### Project Overview
 
-This repository serves as a centralized location for managing and analyzing sales data. It includes various dataset  and documentation to facilitate understanding and use of the sales information. The data includes sales metrics such as: Revenue, Customer ID, Products, Sales, Order ID, Order Date and Region. The objectives of this project are listed below:
+This repository serves as a centralized location for managing and analyzing sales data. It includes various dataset  and documentation to facilitate understanding and use of the sales information. The data includes sales metrics such as: Revenue, Customer ID, Products, Sales, Order ID, Order Date and Region. 
 
+### Objectives
 1. Customer Analysis: Identifying customer segments and region.
 2. Product Performance: Reviewing product popularity and profitability.
 3. Revenue Analysis: Understanding revenue sources by region, order date, and customer demographics.
@@ -188,3 +191,56 @@ ORDER BY
 ### Summary
 
 Based on the data sets analyzed for year 2023 and 2024, it was confirmed that the company recorded a declined revenue generation in South and most importantly East which raised a great concern. The company is advised to do a market survey so as to understand the customers' preference, improve/maintain the product quality and make a  marketing strategy plan on how to deliver and win the heart of the customers. The company is also expected to maintain good relationship with the customers in the remaining region that recorded increase in revenue which are North and West as this will help to keep on recording increased revenue in future years.
+
+
+
+
+# LITA_CAPSTONE_PROJECT_CUSTOMERDATA
+
+### PROJECT TITLE: Analyzing Customer Data using Microsoft Excel,SQL and PowerBI
+
+[Project Overview](#project-overview)
+
+[Objectives](objectives)
+
+[Data Sources](#data-sources)
+
+[Data Characteristics](data-characteristics)
+
+[Tools Used](#tools-used)
+
+[Exploratory Data Analysis](#exploratory-data-analysis)
+
+[Inference](#inference)
+
+[Summary](#summary)
+
+### Project Overview
+
+This report aims at analyzing customer data and understanding the subscription trends to know the best action to take for the subscription types not doing well. It presents an in-depth analysis of customer subscription service data, focusing on segmentation, cancellation trends, and overall subscription patterns. the analysis aims to understand customer behaviour, track subscription types, and identify key trends in cancellations and renewals. Using a combination of MS Excel, SQL, and Power BI, the data was cleaned, organized, analyzed, and visualized to reveal insights into customer behaviour.
+
+### Objectives
+1. To analyze regional performance
+2. To analyze the most used subscription type
+3. To understand the characteristics and preferences of different customer purchases
+4. To identify key trends in cancellations and renewals
+5. Increase Revenue and Profitability
+
+### Data Sources
+
+The primary source of this data considering is Capstone Project and this is an open source data which can be downloaded freely from an Open source online such as Kaggle or any other data repository site.
+
+### Data Characteristics
+1. CustomerID:Customer ID is a unique identifier assigned to each customer. This ID serves as a distinct reference that helps in differentiating one customer from another within a database or analysis system.
+2. Customer Name:Customer name typically refers to the identifier or label assigned to an individual or organization that interacts with a business. It is a part of customer data used to differentiate and track customers. 
+3. Region:The region typically refers to the geographic area or location where a customer is based or where their purchasing behavior is tracked. We have 4 regions in this dataset (North, South, East, West)
+4. Subscription Type:It  refers to a category or classification that indicates the type of subscription a customer has signed up for. We have 3 Subscription Type in this dataset (Basic, Premium and Standard)
+5. Subscription Start:It refers to the date or time when a customer begins a subscription to a service or product. It is a key data point used to track the customer's engagement with a subscription-based business or model. 
+6. Subscription End:It typically refers to the point at which a customer's subscription or service agreement expires or is terminated.
+7. Canceled:It typically refers to instances where a customer has discontinued or terminated a service, subscription, or order before it was completed. 
+8. Revenue:It refers to the total amount of money generated from the sale of goods or services to customers within a specific time period. It's a key performance metric that reflects the financial success of a business and can be analyzed in various ways to gain insights into customer behavior, sales trends, and business performance.
+9. Subscription Duration:It refers to the length of time a customer remains subscribed to a service or product. It is an important metric used to understand customer retention, loyalty, and the overall customer lifetime value (CLV).
+
+### Tools Used
+
+
