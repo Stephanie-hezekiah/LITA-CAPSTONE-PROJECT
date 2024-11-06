@@ -24,7 +24,7 @@ This repository serves as a centralized location for managing and analyzing sale
 
 ### Data Sources
 
-The data set was given to us by our tutor in person of Mr Mushin.
+The primary source of this data considering is Capstone Project and this is an open source data which can be downloaded freely from an Open source online such as Kaggle or any other data repository site.
 
 ### Data Description
 
