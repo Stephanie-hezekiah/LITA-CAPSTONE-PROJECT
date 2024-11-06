@@ -207,26 +207,43 @@ ii. Data Formatting: Ensure all dates, currency values, and IDs are formatted co
 6. Calculated the average revenue per region using the sumif function (=sumif(region, north, sales)
 
 - Using SQL
-1. Retrieve the total number of customers from each region:
+1. Retrieve the total sales for each product category:
 ```SQL
 SELECT Product, SUM(sales) AS total_sales
 FROM [dbo].[LITA Capstone Dataset for sales]
 GROUP BY Product
 ```
-2. Find the most popular subscription type by the number of customers.
-   ```SQL
-   SELECT Region, COUNT(*) AS number_of_transactions 
-FROM [dbo].[LITA Capstone Dataset for sales]
-GROUP BY Region
-```
-3. Find customers who canceled their subscription within 6 months.
-5. Calculate the average subscription duration for all customers.
-6. Find customers with subscriptions longer than 12 months.
-7. Calculate total revenue by subscription type.
-8. Find the top 3 regions by subscription cancellations.
-9. Find the total number of active and canceled subscriptions.
 
-# Inference
+2.  Identify products with no sales in the last quarter:
+```SQL
+SELECT Distinct Product
+FROM [dbo].[LITA Capstone Dataset for sales]
+WHERE product NOT IN (
+    SELECT product
+    FROM [dbo].[LITA Capstone Dataset for sales]
+    WHERE OrderDate >= DATEADD(month, -1, GETDATE())
+)
+ORDER BY product;
+```
+
+3. Calculate monthly sales totals for the current year:
+```SQL
+SELECT 
+    MONTH(Orderdate) AS month, 
+    DATENAME(MONTH, Orderdate) AS month_name,
+    SUM(sales) AS monthly_sales
+FROM 
+    [dbo].[LITA Capstone Dataset for sales]
+WHERE 
+    YEAR(Orderdate) = YEAR(GETDATE())
+GROUP BY 
+    MONTH(Orderdate), 
+    DATENAME(MONTH, Orderdate)
+ORDER BY 
+    month;
+```
+
+### Inference
 
 1. Top performing products: By using the excel & SQL, the product "Shoes" was considered to be the top performing product base on the total sales(N613,380)
  it generated which is higher than the other products.
@@ -237,6 +254,6 @@ GROUP BY Region
 - East: In Year 2023, the total revenue generated was N393,945. However, there was a significant decline in 2024 with the total revenue coming down to N91,980 representing 62% decrease. This decrease in revenue may suggest increase in competitors, difficulty in maintaining sales, economic conditions and/or market contraction. This indicate a potential area of concern which requires immediate attention. The company should attempt to increase sales & marketing techniques, reaching more customers, maintaining good relationship with the current and new customers, create special incentives, develop a public reputation for quality and expertise, offer discount, rebates and coupons, review the current prices of products among others.
 - West: There is a significant increase in the revenue recorded in this region as N127,135 increase was recorded in between 2023 & 2024. It might be that the company is a monopoly. This need to be maintain for the region to keep on recording increase in revenue.
 
-# Summary
+### Summary
 
 Based on the data sets analyzed for year 2023 and 2024, it was confirmed that the company recorded a declined revenue generation in South and most importantly East which raised a great concern. The company is advised to do a market survey so as to understand the customers' preference, improve/maintain the product quality and make a  marketing strategy plan on how to deliver and win the heart of the customers. The company is also expected to maintain good relationship with the customers in the remaining region that recorded increase in revenue which are North and West as this will help to keep on recording increased revenue in future years.
