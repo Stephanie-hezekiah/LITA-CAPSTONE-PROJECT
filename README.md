@@ -24,7 +24,7 @@ This repository serves as a centralized location for managing and analyzing sale
 
 ### Data Sources
 
-The data set was given by our tutor in person of Mr Mushin.
+The data set was given to us by our tutor in person of Mr Mushin.
 
 ### Data Description
 
