@@ -45,61 +45,9 @@ It contains the original sales data including fields such as:
 7. Unit Price: Price per unit
 
 ### Tools Used
-
-- Microsoft Excel
-i. Dataset cleaning (Removing of duplicates)
-
-ii. Simple arithmetic (sum, averageif, sumif) [view](https://docs.google.com/spreadsheets/d/19UWytDxBJqx-54QoCPdLgoE_aQOcO-7d3CTxwHjOwCs/edit?gid=976270565#gid=976270565)
-
-iii. For analyzing (Use of pivot tables to summarize) [view](https://docs.google.com/spreadsheets/d/19UWytDxBJqx-54QoCPdLgoE_aQOcO-7d3CTxwHjOwCs/edit?gid=585443074#gid=585443074)
-
-iv. For Visualisation (Use of Bar charts, pie chart) [view](https://docs.google.com/spreadsheets/d/1iFaScaM_9J2r2wbGtq3MxnkVP128k2GNegQAeG-zZx4/edit?gid=1508130926#gid=1508130926)
-
-- SQL: -SQL:Structured Query Language for Quering data and Data manipulation.It plays a vital role in data analysis, primarily because it allows users to interact with relational databases efficiently. 
-```SQL
-Create DATABASE Stephanie_db
-
-SELECT * FROM [dbo].[LITA Capstone Dataset for sales]
-
---------- retrieve the total sales for each product category-------
-SELECT Product, SUM(sales) AS total_sales
-FROM [dbo].[LITA Capstone Dataset for sales]
-GROUP BY Product
-
---------find the number of sales transactions in each region--------
-Select sum (sales) as South_Total_Sales 
-from [dbo].[LITA Capstone Dataset for sales]
-where Region = 'South'
-
-Select sum (sales) as North_Total_Sales 
-from [dbo].[LITA Capstone Dataset for sales]
-where Region = 'West'
-
-Select sum (sales) as North_Total_Sales 
-from [dbo].[LITA Capstone Dataset for sales]
-where Region = 'East'
-
-Select sum (sales) as North_Total_Sales 
-from [dbo].[LITA Capstone Dataset for sales]
-where Region = 'North'
-
--------Find the highest-selling product by total sales value-------
-SELECT top 1 Product, sum (sales) AS Highest_Selling_Product 
-FROM [dbo].[LITA Capstone Dataset for sales]
-GROUP BY Product
-  ```
-
-- Power BI: Power BI is an essential tool in sales data analysis because it enables teams to create;
-  
-i. Insightful Data Visualization
-
-ii. Data Connectivity and Integration
-
-iii. Collaboration and Sharing
-
-iv. Predictive Analytics
-
-v. Project Dashboard
+1.Microsoft Excel [download](https://www.microsoft.com/EN-US/MICROSOFT-365/EXCEL)
+2. SQL Server: -SQL:Structured Query Language for Quering data and Data manipulation.It plays a vital role in data analysis, primarily because it allows users to interact with relational databases efficiently. [download}(https://www.microsoft.com/EN-US/SQL-SERVER/SQL-SERVER-DOWNLOADS)
+3. Microsoft Power BI desktop: Used for creating dashboards and visualization. [download](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
 ### Exploratory Data Analysis
 
@@ -141,6 +89,18 @@ ii. Data Formatting: Ensure all dates, currency values, and IDs are formatted co
 6. Calculated the average revenue per region using the sumif function (=sumif(region, north, sales)
 
 - Using SQL
+
+Queries to extract key insights based on the following questions.  
+1. Retrieve the total sales for each product category.
+2. Find the number of sales transactions in each region.
+3. Find the highest-selling product by total sales value.
+4. Calculate total revenue per product.
+5. Calculate monthly sales totals for the current year.
+6. Find the top 5 customers by total purchase amount.
+7. Calculate the percentage of total sales contributed by each region.
+8. Identify products with no sales in the last quarter.
+
+Some of the queries:
 1. Retrieve the total sales for each product category:
 ```SQL
 SELECT Product, SUM(sales) AS total_sales
@@ -241,6 +201,98 @@ The primary source of this data considering is Capstone Project and this is an o
 8. Revenue:It refers to the total amount of money generated from the sale of goods or services to customers within a specific time period. It's a key performance metric that reflects the financial success of a business and can be analyzed in various ways to gain insights into customer behavior, sales trends, and business performance.
 9. Subscription Duration:It refers to the length of time a customer remains subscribed to a service or product. It is an important metric used to understand customer retention, loyalty, and the overall customer lifetime value (CLV).
 
+### EXPLORATORY DATA ANALYSIS (EDA)
+
+1. Data Loading and Initial Exploration
+   
+- Using Excel
+  
+i. Open and Inspect Data: Load the data into Excel to inspect rows, columns, and data types.
+ii.	Removing Duplicates
+iii. Basic Summary Statistics: Use formulas (like AVERAGE, SUM, COUNT, AVERAGEIF AND SUMIF etc.) to calculate basic statistics, such as total revenue, average sales per transaction, and total transactions.
+
+- Using SQL
+
+i. Data Import: Load the data into a SQL database (SQL Server).
+ii. Inspect Table Structure: Use DESCRIBE table_name; or SELECT * FROM [dbo].[LITA Capstone Dataset2 for customer]
+iii. Basic Queries: 
+
+```sql
+Create DATABASE Stephanie_db
+
+SELECT * FROM [dbo].[LITA Capstone Dataset for sales]
+```
+
+2. Data Cleaning
+   
+- Using Excel
+  
+i. Remove Duplicates: Use Remove Duplicates under the Data tab to clear duplicate rows.
+ii. Data Formatting: Ensure all dates, currency values, and IDs are formatted consistently.
+
+3. Descriptive Statistics and Aggregation
+
+-Using Excel 
+1. To calculate subscription duration.
+2. Calculated the total sales(revenue) using the subtotal function.
+3. Calculate the average revenue using the average function.
+4. Calculate the Total Revenue by Region (South) using the sumif function.
+5. Total Revenue by Region (North) using the sumif function.
+6. Total Revenue by Region (East) using the sumif function.
+7. Total Revenue by Region (West) using the sumif function.
+8. Average Revenue SubType(Basic) using the averageif.
+9. Average Revenue SubType(Premium) using the averageif.
+10. Average Revenue SubType(Standard) using the averageif.
+
+- Using SQL
+
+Queries to extract key insights based on the following questions.  
+1. Retrieve the total number of customers from each region.
+2. Find the most popular subscription type by the number of customers.
+3. Find customers who canceled their subscription within 6 months.
+4. Calculate the average subscription duration for all customers.
+5. Find customers with subscriptions longer than 12 months.
+6. Calculate total revenue by subscription type.
+7. Find the top 3 regions by subscription cancellations.
+8. Find the total number of active and canceled subscriptions.
+
+Some of the queries:
+```SQL
+SELECT Region, COUNT(DISTINCT CustomerID) AS total_customers
+FROM [dbo].[LITA Capstone Dataset2 for customer]
+GROUP BY Region;
+
+SELECT DISTINCT 
+    CustomerID AS Cancelled_Subscription,
+    CustomerName,
+    Region,
+	SubscriptionType
+FROM [dbo].[LITA Capstone Dataset2 for customer]
+WHERE canceled = 'true';
+
+SELECT Count(*) as canceledsubscription from [dbo].[LITA Capstone Dataset2 for customer]
+where canceled =1
+
+SELECT Count(*) as activesubscription from [dbo].[LITA Capstone Dataset2 for customer]
+where canceled =0
+```
+4. Visualisation
+
+- Using Power BI: Offers interactive dashboards and visuals for exploring subscription trends.
+1.Key Metrics Dashboards
+2. KPI Cards : Displayed key metrics()
+3. Interactive slicers : Added slicers for regions and subscription types, allowing viewers to filter insights by their area of interest.
+4. Subscriber Distribution and Segment Analysis
+5. Subscrption count by region and type : Visualized using interactive bar charts, showing which regions have the highest subscriptions and subscription types are most popular.
+6. Customer segmentation dashboard : Created visuals to differentiate segments by region and subscription type.
+
 ### Tools Used
 
+1.Microsoft Excel [download](https://www.microsoft.com/EN-US/MICROSOFT-365/EXCEL)
+2. SQL Server: -SQL:Structured Query Language for Quering data and Data manipulation.It plays a vital role in data analysis, primarily because it allows users to interact with relational databases efficiently. [download}(https://www.microsoft.com/EN-US/SQL-SERVER/SQL-SERVER-DOWNLOADS)
+3. Microsoft Power BI desktop: Used for creating dashboards and visualization. [download](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
+### Analysis
+
+Power BI Dashboard
+![Image](<img width="597" alt="CUSTOMER1" src="https://github.com/user-attachments/assets/055be2eb-d1b9-4807-8820-75960c14df64">)
